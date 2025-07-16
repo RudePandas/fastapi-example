@@ -70,7 +70,7 @@ async def http_exception_handler(request, exc):
 
 @app.exception_handler(Exception)
 async def general_exception_handler(request, exc):
-    logger.error(f"未处理的异常: {exc}")
+    app_logger.error(f"未处理的异常: {exc}")
     return JSONResponse(
         status_code=500,
         content={"success": False, "message": "服务器内部错误"}
